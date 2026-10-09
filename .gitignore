@@ -1,0 +1,6 @@
+exports/*
+!exports/.gitkeep
+__pycache__/
+*.pyc
+*.tmp
+.DS_Store

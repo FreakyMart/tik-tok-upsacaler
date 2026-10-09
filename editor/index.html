@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explainer Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M8 1l7 7-7 7-7-7z%22 fill=%22%237c5cff%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo">◆</span> Explainer Studio</div>
+    <select id="projectSelect" title="المشروع"></select>
+    <button id="newProject" class="ghost" title="مشروع جديد">＋ جديد</button>
+    <div class="spacer"></div>
+    <div id="liveBadge" class="live" title="المحرر مربوط بملف project.json — أي تعديل بالكود بيبين فوراً"><span class="dot"></span><span id="liveText">مربوط بالكود</span></div>
+    <button id="undoBtn" class="ghost" title="تراجع (Ctrl+Z)">↶</button>
+    <button id="redoBtn" class="ghost" title="إعادة (Ctrl+Y)">↷</button>
+    <button id="exportBtn" class="primary">⬇ تصدير MP4</button>
+  </header>
+
+  <aside class="left panel">
+    <nav class="tabs" id="leftTabs">
+      <button data-tab="scenes" class="active">المشاهد</button>
+      <button data-tab="add">إضافة</button>
+      <button data-tab="media">الملفات</button>
+      <button data-tab="transitions">الانتقالات</button>
+    </nav>
+    <section class="tab-body" data-body="scenes">
+      <div id="sceneList" class="scene-list"></div>
+      <div class="section-title">طبقات المشهد</div>
+      <div id="layerList" class="layer-list"></div>
+    </section>
+    <section class="tab-body hidden" data-body="add">
+      <div class="section-title">مشهد جديد من قالب</div>
+      <div id="templateGrid" class="grid2"></div>
+      <div class="section-title">طبقة في المشهد الحالي</div>
+      <div id="layerGrid" class="grid2"></div>
+    </section>
+    <section class="tab-body hidden" data-body="media">
+      <label class="upload">
+        <input type="file" id="uploadInput" multiple accept="image/*,video/*,audio/*">
+        ⬆ ارفع صور / فيديو / صوت
+        <small>أو اسحب الملفات هون</small>
+      </label>
+      <div id="mediaGrid" class="media-grid"></div>
+    </section>
+    <section class="tab-body hidden" data-body="transitions">
+      <input id="transSearch" class="search" placeholder="ابحث عن انتقال…">
+      <div class="hint">الانتقال بيتطبق بين المشهد المحدد واللي بعده. مرّر الماوس للمعاينة.</div>
+      <div id="transGrid" class="trans-grid"></div>
+    </section>
+  </aside>
+
+  <main class="center">
+    <div class="stage" id="stage" dir="ltr">
+      <div class="stage-inner" id="stageInner">
+        <canvas id="canvas"></canvas>
+        <svg id="overlay"></svg>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right panel">
+    <nav class="tabs" id="rightTabs">
+      <button data-tab="props" class="active">الخصائص</button>
+      <button data-tab="json">JSON</button>
+    </nav>
+    <div id="inspector" class="inspector"></div>
+    <div id="jsonPane" class="json-pane hidden">
+      <div class="hint" id="jsonHint"></div>
+      <textarea id="jsonText" spellcheck="false" dir="ltr"></textarea>
+      <div class="row"><button id="jsonApply" class="primary">تطبيق</button><span id="jsonError" class="err"></span></div>
+    </div>
+  </aside>
+
+  <footer class="timeline-wrap" dir="ltr">
+    <div class="transport">
+      <button id="toStart" class="ghost" title="البداية (Home)">⏮</button>
+      <button id="playBtn" class="play" title="تشغيل (Space)">▶</button>
+      <button id="toEnd" class="ghost" title="النهاية (End)">⏭</button>
+      <span id="timecode" class="timecode">00:00.00 / 00:00.00</span>
+      <label class="chk"><input type="checkbox" id="loopChk"> تكرار</label>
+      <div class="spacer"></div>
+      <label class="chk">جودة المعاينة
+        <select id="qualitySel"><option value="0.5">متوسطة</option><option value="0.75">عالية</option><option value="1">كاملة</option></select>
+      </label>
+      <label class="chk">تكبير <input type="range" id="zoomRange" min="10" max="300" value="60"></label>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="tl-labels" id="tlLabels"></div>
+      <div class="tl-scroll" id="tlScroll">
+        <div class="tl-content" id="tlContent"></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-card" id="modalCard"></div></div>
+<div id="toasts" class="toasts"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "title": "أنماط التعلق",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "theme": "psych",
+  "defaultTransition": {
+    "type": "slide",
+    "duration": 0.7
+  },
+  "transitionSfx": {
+    "src": "media/sfx/whoosh.mp3",
+    "volume": 0.5
+  },
+  "audio": [],
+  "scenes": [
+    {
+      "id": "intro",
+      "duration": 5.5,
+      "template": "title",
+      "props": {
+        "kicker": "علم النفس",
+        "title": "أنماط التعلق الأربعة",
+        "subtitle": "كيف تشكّل طفولتك علاقاتك اليوم؟",
+        "highlight": [
+          "التعلق"
+        ]
+      },
+      "camera": {
+        "from": {
+          "zoom": 1
+        },
+        "to": {
+          "zoom": 1.07
+        }
+      },
+      "transition": {
+        "type": "zoom",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "hook",
+      "duration": 5,
+      "template": "statement",
+      "props": {
+        "text": "طريقة تعلّقك بأهلك وأنت صغير بتأثر على طريقة حبك وأنت كبير",
+        "highlight": [
+          "تعلّقك",
+          "حبك"
+        ]
+      },
+      "camera": {
+        "from": {
+          "zoom": 1.04
+        },
+        "to": {
+          "zoom": 1
+        }
+      },
+      "transition": {
+        "type": "ink",
+        "duration": 1
+      }
+    },
+    {
+      "id": "secure-chapter",
+      "duration": 3.5,
+      "template": "chapter",
+      "props": {
+        "number": "01",
+        "title": "التعلق الآمن",
+        "subtitle": "ثقة وراحة بالقرب"
+      },
+      "transition": {
+        "type": "circle",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "secure-list",
+      "duration": 6.5,
+      "template": "list",
+      "props": {
+        "title": "علامات التعلق الآمن",
+        "items": [
+          "بتعبّر عن مشاعرك بسهولة",
+          "بتثق بالناس القريبين منك",
+          "ما بتخاف من القرب ولا من البعد"
+        ]
+      },
+      "transition": {
+        "type": "glitch",
+        "duration": 0.6
+      }
+    },
+    {
+      "id": "anxious-chapter",
+      "duration": 3.5,
+      "template": "chapter",
+      "props": {
+        "number": "02",
+        "title": "التعلق القلق",
+        "subtitle": "خوف دائم من الفقد"
+      },
+      "overrides": {
+        "number": {
+          "color": "accent2"
+        }
+      },
+      "transition": {
+        "type": "warp",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "anxious-map",
+      "duration": 7,
+      "background": {
+        "type": "pattern",
+        "pattern": "grid",
+        "bg": "#F6EFE6",
+        "color": "#EADFCF",
+        "size": 54
+      },
+      "camera": [
+        {
+          "t": 0,
+          "zoom": 1.15,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "t": 3.2,
+          "zoom": 1,
+          "x": 0,
+          "y": 0,
+          "ease": "inOutCubic"
+        },
+        {
+          "t": 7,
+          "zoom": 1.04,
+          "x": 40,
+          "y": 0
+        }
+      ],
+      "layers": [
+        {
+          "id": "center",
+          "type": "text",
+          "text": "أنت",
+          "font": "display",
+          "size": 110,
+          "color": "ink",
+          "x": 960,
+          "y": 540,
+          "in": {
+            "type": "pop",
+            "duration": 0.6
+          }
+        },
+        {
+          "id": "ring",
+          "type": "shape",
+          "shape": "ellipse",
+          "width": 330,
+          "height": 250,
+          "stroke": "accent",
+          "strokeWidth": 7,
+          "rough": true,
+          "x": 960,
+          "y": 540,
+          "in": {
+            "type": "draw",
+            "delay": 0.3,
+            "duration": 0.8,
+            "ease": "inOutCubic"
+          }
+        },
+        {
+          "id": "arrow1",
+          "type": "shape",
+          "shape": "arrow",
+          "points": [
+            [
+              1140,
+              470
+            ],
+            [
+              1430,
+              300
+            ]
+          ],
+          "curve": -0.15,
+          "stroke": "ink",
+          "strokeWidth": 6,
+          "rough": true,
+          "in": {
+            "type": "draw",
+            "delay": 1.2,
+            "duration": 0.6
+          }
+        },
+        {
+          "id": "label1",
+          "type": "text",
+          "text": "خوف من الهجر",
+          "font": "body",
+          "size": 54,
+          "color": "surface",
+          "box": {
+            "color": "accent",
+            "radius": 16
+          },
+          "x": 1560,
+          "y": 250,
+          "in": {
+            "type": "pop",
+            "delay": 1.7
+          },
+          "loop": {
+            "type": "float",
+            "amount": 6,
+            "speed": 0.4
+          }
+        },
+        {
+          "id": "arrow2",
+          "type": "shape",
+          "shape": "arrow",
+          "points": [
+            [
+              780,
+              470
+            ],
+            [
+              490,
+              300
+            ]
+          ],
+          "curve": 0.15,
+          "stroke": "ink",
+          "strokeWidth": 6,
+          "rough": true,
+          "in": {
+            "type": "draw",
+            "delay": 2.3,
+            "duration": 0.6
+          }
+        },
+        {
+          "id": "label2",
+          "type": "text",
+          "text": "حاجة دائمة للطمأنة",
+          "font": "body",
+          "size": 54,
+          "color": "surface",
+          "box": {
+            "color": "accent2",
+            "radius": 16
+          },
+          "x": 360,
+          "y": 250,
+          "in": {
+            "type": "pop",
+            "delay": 2.8
+          },
+          "loop": {
+            "type": "float",
+            "amount": 6,
+            "speed": 0.45
+          }
+        },
+        {
+          "id": "arrow3",
+          "type": "shape",
+          "shape": "arrow",
+          "points": [
+            [
+              960,
+              680
+            ],
+            [
+              960,
+              860
+            ]
+          ],
+          "stroke": "ink",
+          "strokeWidth": 6,
+          "rough": true,
+          "in": {
+            "type": "draw",
+            "delay": 3.4,
+            "duration": 0.5
+          }
+        },
+        {
+          "id": "label3",
+          "type": "text",
+          "text": "تفكير زائد بكل رسالة",
+          "font": "body",
+          "size": 54,
+          "color": "ink",
+          "box": {
+            "color": "accent3",
+            "radius": 16
+          },
+          "x": 960,
+          "y": 930,
+          "in": {
+            "type": "pop",
+            "delay": 3.9
+          },
+          "loop": {
+            "type": "float",
+            "amount": 6,
+            "speed": 0.5
+          }
+        }
+      ],
+      "transition": {
+        "type": "cube",
+        "duration": 0.9
+      }
+    },
+    {
+      "id": "stat",
+      "duration": 5,
+      "template": "stat",
+      "props": {
+        "value": 50,
+        "prefix": "~",
+        "suffix": "%",
+        "label": "تقريباً نص البالغين عندهم نمط تعلق آمن"
+      },
+      "transition": {
+        "type": "page",
+        "duration": 1
+      }
+    },
+    {
+      "id": "compare",
+      "duration": 7,
+      "template": "compare",
+      "props": {
+        "leftTitle": "آمن",
+        "left": [
+          "بيطلب الدعم بوضوح",
+          "بيحل الخلاف بهدوء",
+          "مرتاح مع الاستقلالية"
+        ],
+        "rightTitle": "تجنّبي",
+        "right": [
+          "بيكبت مشاعره",
+          "بينسحب وقت الخلاف",
+          "بيخاف من القرب"
+        ]
+      },
+      "transition": {
+        "type": "dreamy",
+        "duration": 0.9
+      }
+    },
+    {
+      "id": "quote",
+      "duration": 5.5,
+      "template": "quote",
+      "props": {
+        "text": "نمط التعلق مش حكم مؤبد… بنقدر نتعلم الأمان من جديد",
+        "author": "خلاصة الحلقة"
+      },
+      "transition": {
+        "type": "fadeblack",
+        "duration": 0.8
+      }
+    },
+    {
+      "id": "outro",
+      "duration": 4.5,
+      "template": "outro",
+      "props": {
+        "title": "شكراً للمشاهدة",
+        "subtitle": "بالحلقة الجاية: كيف تعرف نمطك؟",
+        "cta": "اشترك 🔔"
+      }
+    }
+  ]
+}
